@@ -1,54 +1,53 @@
+// Online C compiler to run C program online
 #include <stdio.h>
 #include <string.h>
-
-int main() 
-{
-    char str[]="I am";
+int main() {
     
-    int n = strlen(str);
+    char str[]="the pen";
+    
+    printf("The old string is\n %s",str);
+    
+    int n=strlen(str);
     
     int start = 0;
     int end = n-1;
     
-    int i;
-    
     while(start<end)
     {
         char tmp = str[start];
-        str[start]=str[end];
-        str[end]=tmp;
+        str[start] = str[end];
+        str[end] = tmp;
         start++;
         end--;
     }
     
-    printf("%s",str);
-    printf("\n");
+    int i=0; //starting index
     
-    i = 0;
-    
-while(i < n)
-{
-    while(i < n && str[i] == ' ') i++;  // skip leading spaces
-
-    int start_word = i; //starting of the word found
-
-    while(i < n && str[i] != ' ') i++;  // ending of the word found
-
-    int end_word = i - 1;
-
-    while(start_word < end_word)
+    while(i<n) //iterate the string
     {
-        char tmp = str[start_word];
-        str[start_word] = str[end_word];
-        str[end_word] = tmp;
-        start_word++;
-        end_word--;
+        int j=i; //start of the word
+        
+        while(j<n && str[j]!=' ') //iterate till end of current word
+        {
+            j++;
+        }
+        
+        start = i; //start index of current word
+        end = j-1; //end index of current word
+        while(start<end)
+        {
+            char tmp = str[start];
+            str[start] = str[end];
+            str[end] = tmp;
+            start++;
+            end--;
+            
+        }
+        
+        i=j+1; //move to the start of new word after the space
     }
-}
-
     
-    printf("%s",str);
+    printf("\nThe new string is\n%s",str);
+
     return 0;
 }
-
-
