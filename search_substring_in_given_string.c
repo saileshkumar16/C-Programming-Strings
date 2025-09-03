@@ -3,8 +3,8 @@
 
 int main()
 {
-    char s1[] = "hello world";
-    char s2[] = "world";
+    char s1[] = "sailesh";
+    char s2[] = "ile";
     
     int n = strlen(s1);
     int m = strlen(s2);
@@ -21,15 +21,18 @@ int main()
             count++;
         }
         
+        else if(s1[i]!=s2[j])
+        {
+            j=0;
+            count=0;
+        }
+        
         i++;
     }
-    
-   // printf("%d",count);
     
     if(count==m)
     printf("%s is the substring of %s",s2,s1);
     else
     printf("Not a substring");
-
     return 0;
 }
