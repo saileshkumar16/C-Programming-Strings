@@ -35,14 +35,7 @@ int main()
     printf("%s is a sub string of %s",s2,s1);
     else
     printf("Not a sub string");
-    
-    
- 
- 
 
     
     return 0;
 }
-
-
-
