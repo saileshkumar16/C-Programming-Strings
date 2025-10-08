@@ -3,25 +3,20 @@
 
 int main() 
 {
-    char str[] = "madams";
+    char str[]="sailesh";
     
-    char search = 'm';
-    int found = 0;
+    int n = strlen(str);
     
-    int i=0;
+    char ch ='s';
     
-    while(str[i]!='\0')
+    
+    for(int i=0; i<n; i++)
     {
-        if(str[i]==search)
+        if(str[i]==ch)
         {
-        found = 1;
-        break;
+            printf("%c is found at %d index in given string %s ",ch,i,str);
+            break;
         }
-        
-        i++;
     }
-    
-    printf("First occurence for given %s string is found at %d index",str,i);
-
     return 0;
 }
