@@ -3,9 +3,14 @@
 
 int main() 
 {
-    char str[]="sailesh";
+    char str[]="aassh";
     
     int n = strlen(str);
+    
+    int max = 0;
+    int min = n;
+    
+    char maxchar, minchar;
     
     for(int i=0; i<n; i++)
     {
@@ -24,8 +29,24 @@ int main()
             }
         }
         
-        printf("%c character has been repeated %d times\n",str[i],count);
+        if(count > max)
+        {
+            max = count;
+            maxchar = str[i];
+        }
+        
+        if(count<min)
+        {
+            min = count;
+            minchar = str[i];
+        }
+        
+        printf("%c character has been repeated %d times\n", str[i], count);
     }
+    
+        printf("\nHighest frequency: %c = %d times\n", maxchar, max);
+    printf("Lowest frequency: %c = %d times\n", minchar, min);
+
 
     return 0;
 }
