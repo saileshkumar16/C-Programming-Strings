@@ -1,22 +1,30 @@
+// Online C compiler to run C program online
 #include <stdio.h>
 #include <string.h>
-
 int main() 
 {
-    char str[]="sailesh";
+    char str[]="saai";
     
     int n = strlen(str);
     
-    char ch ='s';
-    
-    
     for(int i=0; i<n; i++)
     {
-        if(str[i]==ch)
+        if(str[i]=='#')
+        continue;
+        
+        
+        char ch = str[i];
+        printf("first occurence of %c is %d\n",ch,i);
+        
+        
+        for(int j=i+1; j<n; j++)
         {
-            printf("%c is found at %d index in given string %s ",ch,i,str);
-            break;
+            if(str[j]==ch)
+            {
+                str[j]='#';
+            }
         }
     }
+
     return 0;
 }
