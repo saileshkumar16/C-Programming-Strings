@@ -1,28 +1,35 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
+int main() 
 {
     char str[]="madam";
     
-    int n = strlen(str);
-    
     int is_pal = 1;
     
-    for(int i =0;i<n/2;i++)
+    int start = 0;
+    
+    int n = strlen(str);
+    
+    int end = n -1;
+    
+    
+    for(int i=0; i<n/2; i++)
     {
-        if(str[i]!=str[n-i-1])
+        if(str[start]!=str[end])
         {
-        is_pal=0;
-        break;
+            is_pal = 0;
+            break;
         }
+        
+        start++;
+        end--;
     }
     
     if(is_pal)
-    printf("%s is a palindrome",str);
+    printf("Palindrome");
     else
-    printf("%s is not a palindrome",str);
-    
+    printf("not a palindrome");
 
     return 0;
 }
