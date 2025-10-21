@@ -1,29 +1,35 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
+int main() 
 {
-    char str[] ="hello world";
-    int n = strlen(str);
+    char str[]="sailesh how are you";
     
-    int in_word=0;
+    int in_word = 0;
     
-    for(int i=0; i<n; i++)
+    int i =0;
+    
+    while(str[i]!='\0')
     {
-       
-        if(str[i]!=' ' && in_word==0) // Start of word
+        if(i==0)
         {
-        in_word = 1;
-        str[i] = str[i]-32;
+            in_word = 1;
+            str[i] = str[i] - 32;
         }
         
-        else if(str[i]==' ')
-        in_word = 0;
+        else if(i>0 && str[i]!=' ' && str[i-1]==' ')
+        {
+            in_word = 1;
+            str[i] = str[i] -32;
+        }
+        
+        i++;
     }
     
-    printf("%s",str);
+    printf("Captilise string is: %s",str);
     
- 
- 
-    return 0;
+    
+
+    
+    
 }
