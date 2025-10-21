@@ -2,11 +2,29 @@
 
 int main()
 {
+    char str[] ="   -123";
     
-    char str[10]="123";
+    int  res = 0;
     
-    int res = 0;
-    int i=0;
+    int sign;
+    
+    int i =0;
+    
+    while(str[i]==' ')
+    i++;
+    
+    if(str[i]=='-')
+    {
+        sign = -1;
+        i++;
+    }
+    
+    else if(str[i]=='+')
+    {
+        sign = 1;
+        i++;
+    }
+    
     
     while(str[i]!='\0')
     {
@@ -18,5 +36,8 @@ int main()
         
         i++;
     }
-    printf("%d",res);
+    
+    printf("Final result is %d",res*sign);
+
+    return 0;
 }
