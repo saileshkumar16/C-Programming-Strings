@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() 
+int main()
 {
-    char str[] = "the pen is blue";
+    char str[100] = "Hi How Are You";
     int n = strlen(str);
 
-    // Step 1: Reverse the whole string
-    int start = 0;
-    int end = n - 1;
-    while(start < end) 
+    printf("Original string: %s\n", str);
+
+    // Step 1: Reverse the entire string
+    int start = 0, end = n - 1;
+    while(start < end)
     {
         char tmp = str[start];
         str[start] = str[end];
@@ -17,48 +18,30 @@ int main()
         start++;
         end--;
     }
-
-    printf("Reversed string: %s\n", str);
+    printf("After reversing entire string: %s\n", str); 
+    // Output: "uoY erA woH iH"
 
     // Step 2: Reverse each word individually
-    int starting = 0;
-    int i = 0;
-    
-    while(str[i]!='\0')
+    int word_start = 0;
+    for(int i = 0; i <= n; i++) // <= n to include null terminator
     {
-        if(str[i]==' ' || str[i]=='\0')
+        if(str[i] == ' ' || str[i] == '\0')
         {
-            int end;
-            
-            if(str[i+1]=='\0')
-            end = i;
-            
-            else
-            end = i -1;
-            
-            int s = starting;
-            int e = end;
-            
-            while(s<e)
+            int s = word_start, e = i - 1;
+            while(s < e)
             {
                 char tmp = str[s];
                 str[s] = str[e];
                 str[e] = tmp;
-                
                 s++;
                 e--;
             }
-            
-              starting = i+1;
-            
+            word_start = i + 1;
         }
-        
-        i++;
-        
-      
     }
 
-    printf("Reversed words string: %s\n", str);
+    printf("After reversing each word: %s\n", str); 
+    // Output: "You Are How Hi"
 
     return 0;
 }
